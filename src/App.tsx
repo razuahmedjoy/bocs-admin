@@ -16,6 +16,7 @@ import Buttons from './pages/UiElements/Buttons';
 import NotFound from './pages/NotFound';
 import AllCourses from './pages/Courses/AllCourses';
 import AddNewCourse from './pages/Courses/AddNewCourse';
+import CourseRequest from './pages/Courses/CourseRequest';
 
 function App() {
   const [loading, setLoading] = useState<boolean>(true);
@@ -43,6 +44,7 @@ function App() {
         <Route path="/dashboard" element={<Analytics />} />
         <Route path="/courses" element={<AllCourses />} />
         <Route path="/courses/add" element={<AddNewCourse />} />
+        <Route path="/courses/request" element={<CourseRequest/>} />
         
         <Route path="/calendar" element={<Calendar />} />
         <Route path="/profile" element={<Profile />} />

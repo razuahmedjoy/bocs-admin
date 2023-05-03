@@ -1,22 +1,23 @@
-import { useForm } from 'react-hook-form';
-import Breadcrumb from '../../components/Breadcrumb';
+// import { useForm } from 'react-hook-form';
+// import Breadcrumb from '../../components/Breadcrumb';
 import DefaultLayout from '../../layout/DefaultLayout';
+import CourseAdd from '../../components/courseAdd'
 
 const AddNewCourse = () => {
-  const {
-    register,
-    formState: { errors },
-    handleSubmit,
-  } = useForm();
+  // const {
+  //   register,
+  //   formState: { errors },
+  //   handleSubmit,
+  // } = useForm();
 
-  const onSubmit = (data:Object) => {
-    console.log(data);
-  }
+  // const onSubmit = (data:Object) => {
+  //   console.log(data);
+  // }
 
   return (
     <DefaultLayout>
-      <Breadcrumb pageName="Add New Course" />
-
+      {/* <Breadcrumb pageName="Add New Course" /> */}
+{/* 
       <div>
         <div className="flex flex-col gap-9">
           <div className="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
@@ -135,7 +136,8 @@ const AddNewCourse = () => {
             </form>
           </div>
         </div>
-      </div>
+      </div> */}
+      <CourseAdd />
     </DefaultLayout>
   );
 };

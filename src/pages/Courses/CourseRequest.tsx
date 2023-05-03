@@ -4,10 +4,10 @@ import DefaultLayout from '../../layout/DefaultLayout';
 import { FaEdit } from 'react-icons/fa';
 
 
-const AllCourses = () => {
+const CourseRequest = () => {
   return (
     <DefaultLayout>
-      <Breadcrumb pageName="All Courses" />
+      <Breadcrumb pageName="Course Request" />
 
       <div className="flex flex-col gap-10">
         <div className="rounded-sm border border-stroke bg-white px-5 pt-6 pb-2.5 shadow-default dark:border-strokedark dark:bg-boxdark sm:px-7.5 xl:pb-1">
@@ -114,4 +114,4 @@ const AllCourses = () => {
   );
 };
 
-export default AllCourses;
+export default CourseRequest;

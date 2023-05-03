@@ -34,6 +34,10 @@ const sidebarMenuItems = [
         title: 'Add Course',
         path: '/courses/add',
       },
+      {
+        title: 'Course Request',
+        path: '/courses/request',
+      },
     ],
   },
  
