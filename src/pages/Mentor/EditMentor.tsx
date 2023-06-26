@@ -1,15 +1,15 @@
 import React from 'react'
 import DefaultLayout from '../../layout/DefaultLayout';
-import CourseAdd from '../../components/courseAdd';
+import UpdateMentor from '../../components/UpdateMentor';
 
-const AddNewMentor = () => {
+const EditMentor = () => {
 
 
   return (
     <DefaultLayout>
-      <CourseAdd />
+      <UpdateMentor />
     </DefaultLayout>
   );
 };
 
-export default AddNewMentor;
+export default EditMentor;

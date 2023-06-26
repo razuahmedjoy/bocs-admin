@@ -1,13 +1,13 @@
 import React from 'react'
 import DefaultLayout from '../../layout/DefaultLayout';
-import CourseAdd from '../../components/courseAdd';
+import MentorAdd from '../../components/MentorAdd';
 
 const AddNewMentor = () => {
 
 
   return (
     <DefaultLayout>
-      <CourseAdd />
+      <MentorAdd />
     </DefaultLayout>
   );
 };

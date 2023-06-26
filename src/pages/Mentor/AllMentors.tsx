@@ -1,34 +1,32 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
-import courseAxiosInstance from '../../axiosInstance/courseaxiosInstance';
+import mentorAxiosInstance from '../../axiosInstance/mentorAxiosInstance';
 
 import Breadcrumb from '../../components/Breadcrumb';
 import DefaultLayout from '../../layout/DefaultLayout';
 import { FaEdit } from 'react-icons/fa';
 
 
-
 const AllMentors = () => {
 
-  const { id } = useParams()
+  const {id} = useParams()
 
-  const [courses, setCourses] = useState([]);
+  const [val, setVal] = useState([]);
 
   useEffect(() => {
     const getMentor = async () => {
-      const {data} = await courseAxiosInstance.get('/all')
-      setCourses(data.courses)
-      
+      const res = await mentorAxiosInstance.get('/all')
+      setVal(res.data.data)
     }
     getMentor()
   }, [])
 
-  const DeleteCourse = async (courseId) => {
-    const res = await courseAxiosInstance.delete(`/${id}`)
+  const DeleteMentor = async (mentorId) => {
+    const res = await mentorAxiosInstance.delete(`/${id}`)
     console.log('mentor deleted', res)
   }
 
-
+  
 
   return (
     <DefaultLayout>
@@ -41,13 +39,16 @@ const AllMentors = () => {
               <thead>
                 <tr className="bg-gray-2 text-left dark:bg-meta-4">
                   <th className="min-w-[220px] py-4 px-4 font-medium text-black dark:text-white xl:pl-11">
-                    Courses
+                    Mentors
+                  </th>
+                  <th className="min-w-[150px] py-4 px-4 font-medium text-black dark:text-white">
+                    Expertise
                   </th>
                   <th className="min-w-[120px] py-4 px-4 font-medium text-black dark:text-white">
-                    Category
+                    Rank
                   </th>
                   <th className="min-w-[120px] py-4 px-4 font-medium text-black dark:text-white">
-                    Status
+                    Rating
                   </th>
                   <th className="py-4 px-4 font-medium text-black dark:text-white">
                     Actions
@@ -56,27 +57,30 @@ const AllMentors = () => {
               </thead>
               <tbody>
                 {
-                  courses.map((course) => {
+                  val.map((mentor) => {
                     return (
-                      <tr key={course.id}>
+                      <tr key={mentor.id}>
                         <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark xl:pl-5">
                           <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
                             <div className="h-12.5 w-15 rounded-md">
-                              <img src={course.imgPath} alt="Course" />
+                              <img src={mentor.imgPath} alt="Mentor" />
                             </div>
-                            <p className="text-sm text-black dark:text-white">{course.regularprice} BDT.</p>
+                            <p className="text-sm text-black dark:text-white">{mentor.name}</p>
                           </div>
                         </td>
                         <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
-                          <p className="text-black dark:text-white">{course.category}</p>
+                          <p className="text-black dark:text-white">{mentor.expertise}</p>
                         </td>
                         <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
-                          <p className="text-black dark:text-white">{course.status}</p>
+                          <p className="text-black dark:text-white">{mentor.rank}</p>
+                        </td>
+                        <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
+                          <p className="text-black dark:text-white">{mentor.rating}</p>
                         </td>
                         <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
                           <div className="flex items-center space-x-3.5">
                             <button className="hover:text-primary">
-                              <Link to={`/mentor/details/${course.id}`} > <svg
+                              <Link to={`/mentor/details/${mentor.id}`} > <svg
                                 className="fill-current"
                                 width="18"
                                 height="18"
@@ -96,10 +100,10 @@ const AllMentors = () => {
 
                             </button>
                             <button className="hover:text-primary">
-                              <Link to={`/mentor/edit/${course.id}`}><FaEdit /></Link>
+                              <Link to={`/mentor/edit/${mentor.id}`}><FaEdit /></Link>
                             </button>
-                            <button className="hover:text-primary" onClick={() => DeleteCourse(course?.id)}>
-                              <svg
+                            <button className="hover:text-primary" onClick={()=>DeleteMentor(mentor?.id)}>
+                            <svg
                                 className="fill-current"
                                 width="18"
                                 height="18"

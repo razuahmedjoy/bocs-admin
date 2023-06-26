@@ -3,9 +3,9 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
-import AddTopic from '../pages/Form/AddTopic';
-import AddLesson from '../pages/Form/AddLesson';
-import AddCourse from '../pages/Form/AddCourse';
+// import AddTopic from '../pages/Form/AddTopic';
+// import AddLesson from '../pages/Form/AddLesson';
+import EditMentor from '../pages/Form/EditMentor';
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -51,19 +51,19 @@ export default function BasicTabs() {
     <Box sx={{ width: '100%' }}>
       <Box >
         <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
-          <Tab label="Add Course" {...a11yProps(0)} />
-          <Tab label="Add Feature" {...a11yProps(1)} />
-          <Tab label="Add Mentor" {...a11yProps(2)} />
+          <Tab label="Edit Mentor" {...a11yProps(0)} />
+          {/* <Tab label="Add Work" {...a11yProps(1)} />
+          <Tab label="Add Education" {...a11yProps(2)} /> */}
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
-        <AddCourse/>
+        <EditMentor/>
       </TabPanel>
       <TabPanel value={value} index={1}>
-       <AddTopic/>
+        <p>Add Word</p>
       </TabPanel>
       <TabPanel value={value} index={2}>
-        <AddLesson/>
+      <p>Add Education</p>
       </TabPanel>
     </Box>
   );

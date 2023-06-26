@@ -1,5 +1,5 @@
 {
-  "name": "tailadmin-react-free",
+  "name": "mentorova-admin",
   "private": true,
   "version": "1.0.0",
   "type": "module",
@@ -9,15 +9,16 @@
     "preview": "vite preview"
   },
   "author": {
-    "name": "TailAdmin",
-    "email": "hello@tailadmin.com",
-    "url": "https://tailadmin.com"
+    "name": "mentorova-admin"
   },
   "dependencies": {
     "@emotion/react": "^11.10.8",
     "@emotion/styled": "^11.10.8",
+    "@mui/icons-material": "^5.11.16",
     "@mui/material": "^5.12.3",
     "apexcharts": "^3.37.0",
+    "axios": "^1.4.0",
+    "dotenv": "^16.3.1",
     "install": "^0.13.0",
     "jsvectormap": "^1.5.1",
     "localforage": "^1.10.0",
